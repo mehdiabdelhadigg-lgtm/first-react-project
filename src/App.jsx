@@ -4,11 +4,13 @@ import Auth from "./pages/Auth";
 import Checkout from "./pages/Checkout";
 import Navbar from './components/Navbar';
 import './App.css'
+import AuthProvider from './context/AuthContext';
 
 function App() {
 
   return (
-    <div className='app'>
+    <AuthProvider>
+      <div className='app'>
       <Navbar />
       <Routes>
        <Route path='/' element={<Home />} />
@@ -18,6 +20,8 @@ function App() {
       </Routes>
        
     </div>
+    </AuthProvider>
+    
   )
 }
 
