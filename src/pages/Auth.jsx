@@ -1,11 +1,11 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { AuthContext } from "../context/AuthContext";
 import { useNavigate  } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 export default function Auth() {
   const [mode, setmode] = useState("signup");
   const [message, setmessage] = useState(null);
-  const { signUp, user, login } = useContext(AuthContext);
+  const { signUp, user, login } = useAuth();
   const navigate =useNavigate();
   const{
     register,
@@ -54,7 +54,7 @@ export default function Auth() {
               )}
             </div>
             <div className="form-group">
-              <label className="form-lable" htmlFor="password ">
+              <label className="form-lable" htmlFor="password">
                 Password
               </label>
               <input
